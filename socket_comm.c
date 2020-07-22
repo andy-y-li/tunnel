@@ -1,5 +1,14 @@
 #include "socket_comm.h"
 
+
+#ifndef SOL_TCP
+#define SOL_TCP        6
+#endif
+
+#ifndef TCP_KEEPIDLE
+#define TCP_KEEPIDLE         4  /* Start keeplives after this period */
+#endif
+
 void
 sp_nonblocking(int fd) {
 	int flag = fcntl(fd, F_GETFL, 0);
